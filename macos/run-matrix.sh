@@ -63,7 +63,10 @@ d=$(case_dir c_lua "$MDOCS/att_lua_mac.tex"); sbx "$d" -- lualatex -shell-escape
 pr=$(grep PROBE "$d/att_lua_mac.log" | tr '\n' ' '); echo "$pr" | grep -q 'OPENED\|CONNECTED' || grep -q DUMMY "$d/leak_lua.txt" 2>/dev/null && add $g 'lualatex io.open / os.execute / luasocket' 0 "$pr" || add $g 'lualatex io.open / os.execute / luasocket' 1 "$pr"
 for k in read write net; do
   d=$(case_dir c_py_$k "$DOCS/probe.py"); sbx "$d" -- python3 -I probe.py $k; o=$(grep PROBE "$d/.out" | tr '\n' ' ')
-  echo "$o" | grep -q 'READ-OK\|WRITE-OK\|: CONNECTED' && add $g "python direct: $k" 0 "$o" || add $g "python direct: $k" 1 "$o"
+  # a probe that never ran proves nothing: no PROBE line counts as a failure of the test, not a pass
+  if [ -z "$o" ]; then add $g "python direct: $k" 0 "python did not run: $(head -2 "$d/.err" | tr '\n' ' ')"
+  elif echo "$o" | grep -q 'READ-OK\|WRITE-OK\|: CONNECTED'; then add $g "python direct: $k" 0 "$o"
+  else add $g "python direct: $k" 1 "$o"; fi
 done
 d=$(case_dir c_misc)
 sbx "$d" -- /bin/sh -c "kill -TERM $VICTIM && echo KILLED || echo denied"; kill -0 $VICTIM 2>/dev/null && add $g "signal a process outside the sandbox" 1 "$(head -1 "$d/.out") $(head -1 "$d/.err")" || add $g "signal a process outside the sandbox" 0 "victim died"
@@ -77,7 +80,9 @@ sbx "$d" -- /bin/sh -c "open -a TextEdit 2>&1; echo rc=\$?"; o=$(cat "$d/.out" |
 
 g=limits
 d=$(case_dir c_lim "$DOCS/probe.py" "$DOCS/att_loop.tex" "$DOCS/att_mem.tex" "$DOCS/mem.lua")
-sbx "$d" -m 512 -- python3 -I probe.py mem; o="$(grep PROBE "$d/.out") $(grep 'ulimit' "$d/.err" | head -2 | tr '\n' ' ')"; echo "$o" | grep -q ALLOCATED && add $g "memory 512 MB via ulimit (python wants 4 GB)" 0 "$o" || add $g "memory 512 MB via ulimit (python wants 4 GB)" 1 "$o"
+sbx "$d" -m 512 -- python3 -I probe.py mem; o="$(grep PROBE "$d/.out") $(grep 'ulimit' "$d/.err" | head -2 | tr '\n' ' ')"
+if ! grep -q PROBE "$d/.out"; then add $g "memory 512 MB via ulimit (python wants 4 GB)" 0 "python did not run: $(head -2 "$d/.err" | tr '\n' ' ')"
+elif echo "$o" | grep -q ALLOCATED; then add $g "memory 512 MB via ulimit (python wants 4 GB)" 0 "$o"; else add $g "memory 512 MB via ulimit (python wants 4 GB)" 1 "$o"; fi
 sbx "$d" -t 5 -- pdflatex -interaction=nonstopmode att_loop.tex; grep -q TIMEOUT "$d/.err" && add $g "wall time 5 s, TeX infinite loop (kill process group)" 1 "$(grep TIMEOUT "$d/.err") $(summary "$d")" || add $g "wall time 5 s, TeX infinite loop (kill process group)" 0 "$(summary "$d")"
 before=$(ps -u "$(id -u)" | wc -l | tr -d ' ')
 sbx "$d" -p $((before + 6)) -- python3 -I probe.py procs; o="$(grep PROBE "$d/.out") $(grep ulimit "$d/.err" | head -1)"; echo "$o" | grep -q 'failed [1-9]' && add $g "process limit via ulimit -u (user has $before processes; limit +6)" 1 "$o" || add $g "process limit via ulimit -u (user has $before processes; limit +6)" 0 "$o"

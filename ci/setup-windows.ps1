@@ -7,8 +7,12 @@ $ProgressPreference = 'SilentlyContinue'
 
 # 1. TinyTeX-1 (TeX Live, about 100 packages) plus what the matrix needs
 if (-not (Test-Path "$Root\TinyTeX\bin\windows\pdflatex.exe")) {
-    Invoke-WebRequest 'https://github.com/rstudio/tinytex-releases/releases/latest/download/TinyTeX-1.zip' -OutFile tinytex.zip
-    Expand-Archive tinytex.zip -DestinationPath $Root; Remove-Item tinytex.zip
+    # the Windows asset is a 7-Zip self-extracting archive named TinyTeX-1-windows-<version>.exe
+    $rel = Invoke-RestMethod 'https://api.github.com/repos/rstudio/tinytex-releases/releases/latest'
+    $asset = $rel.assets | Where-Object { $_.name -like 'TinyTeX-1-windows-*.exe' } | Select-Object -First 1
+    "TinyTeX release $($rel.tag_name): $($asset.name)"
+    Invoke-WebRequest $asset.browser_download_url -OutFile tinytex-sfx.exe
+    & 7z x tinytex-sfx.exe "-o$Root" -y | Out-Null; Remove-Item tinytex-sfx.exe
 }
 $env:PATH = "$Root\TinyTeX\bin\windows;$env:PATH"
 tlmgr install biblatex biber minted latexmk epstopdf epstopdf-pkg grfext pgf fontspec tex-gyre luaotfload xetex | Out-Host

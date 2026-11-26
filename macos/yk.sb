@@ -10,7 +10,9 @@
 (allow process-exec
   (subpath (param "TEX"))
   (subpath (param "PY"))
-  (subpath "/bin") (subpath "/usr/bin") (subpath "/usr/libexec") (subpath "/usr/sbin"))
+  (subpath "/bin") (subpath "/usr/bin") (subpath "/usr/libexec") (subpath "/usr/sbin")
+  ;; TeX Live's universal biber wrapper runs /usr/bin/lipo, an xcrun shim into the developer tools
+  (regex #"^/Applications/Xcode[^/]*\.app/Contents/Developer/") (subpath "/Library/Developer/CommandLineTools"))
 (allow signal (target same-sandbox))
 (allow process-info* (target same-sandbox))
 (allow sysctl-read)
@@ -27,7 +29,10 @@
   (subpath "/private/var/db/timezone") (subpath "/private/var/db/dyld") (literal "/private/etc/localtime")
   (literal "/private/etc/passwd") (literal "/private/etc/group") (subpath "/private/etc/ssl")
   (literal "/dev/null") (literal "/dev/zero") (literal "/dev/random") (literal "/dev/urandom") (literal "/dev/tty")
-  (literal "/") (literal "/private") (literal "/private/var") (literal "/private/etc"))
+  (literal "/") (literal "/private") (literal "/private/var") (literal "/private/etc")
+  ;; developer tools, read-only, for xcrun/lipo (see process-exec above)
+  (regex #"^/Applications/Xcode[^/]*\.app/Contents/Developer/") (subpath "/Library/Developer/CommandLineTools")
+  (literal "/private/var/db/xcode_select_link") (subpath "/private/var/select"))
 (allow file-read* file-write*
   (subpath (param "SCRATCH"))
   (literal "/dev/null") (literal "/dev/dtracehelper") (literal "/dev/tty"))

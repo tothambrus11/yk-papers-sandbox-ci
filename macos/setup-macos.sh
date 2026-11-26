@@ -10,7 +10,8 @@ TEX="$HOME/Library/TinyTeX"; BIN="$TEX/bin/universal-darwin"; export PATH="$BIN:
 tlmgr install biblatex biber minted latexmk pgf fontspec tex-gyre luaotfload xetex makeindex >/dev/null
 luaotfload-tool -u >/dev/null 2>&1 || true
 fmtutil-sys --byfmt xelatex >/dev/null 2>&1 || true
-PY=$(python3 -c 'import sys; print(sys.prefix)')
+# Seatbelt matches resolved paths: Homebrew's opt/ prefix is a symlink into Cellar/, so use the real prefix
+PY=$(python3 -c 'import sys, os; print(os.path.realpath(sys.prefix))')
 OUT="$HOME/yk-outside"; mkdir -p "$OUT"; echo 'DUMMY-SECRET-ci (test file, not real data)' > "$OUT/secret.txt"
 for f in "$ROOT"/tests/docs/*.tex "$ROOT"/tests/docs/*.py "$ROOT"/macos/docs/*.tex; do
   sed -i '' -e "s#@OUTSIDE_FWD@#$OUT#g" -e "s#@OUTSIDE_WIN@#$OUT#g" -e "s#@OUTSIDE_STR@#$OUT#g" "$f"
