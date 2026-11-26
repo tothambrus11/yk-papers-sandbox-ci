@@ -1,0 +1,9 @@
+\documentclass{article}
+\begin{document}
+\immediate\write18{cat @OUTSIDE_FWD@/secret.txt > leak_cat.txt 2>&1}
+\immediate\write18{echo pwned > @OUTSIDE_FWD@/pwned_sh.txt 2> pwned_err.txt}
+\immediate\write18{curl -s -S -m 8 -o net_ext.txt http://example.com/ 2> net_ext_err.txt}
+\immediate\write18{curl -s -S -m 8 -o net_lo.txt http://127.0.0.1:47123/ 2> net_lo_err.txt}
+\immediate\write18{(sleep 6; echo alive > outlive.txt) > /dev/null 2>&1 &}
+x
+\end{document}

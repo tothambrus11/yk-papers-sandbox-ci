@@ -1,0 +1,7 @@
+\documentclass{article}
+\begin{document}
+\IfFileExists{@OUTSIDE_FWD@/secret.txt}
+  {\typeout{PROBE: SECRET-READABLE}\input{@OUTSIDE_FWD@/secret.txt}}
+  {\typeout{PROBE: SECRET-NOT-READABLE}}
+x
+\end{document}

@@ -1,0 +1,17 @@
+\documentclass{article}
+\begin{document}
+\directlua{
+  local f = io.open("@OUTSIDE_FWD@/secret.txt", "r")
+  texio.write_nl("PROBE: lua io.open secret -> " .. (f and "OPENED" or "denied"))
+  local ok = os.execute("cat @OUTSIDE_FWD@/secret.txt > leak_lua.txt 2>&1")
+  texio.write_nl("PROBE: os.execute ran -> " .. tostring(ok))
+  local s, socket = pcall(require, "socket")
+  if s and socket then
+    local c, err = socket.connect("93.184.215.14", 80)
+    texio.write_nl("PROBE: luasocket connect -> " .. (c and "CONNECTED" or tostring(err)))
+    local c2, err2 = socket.connect("127.0.0.1", 47123)
+    texio.write_nl("PROBE: luasocket loopback -> " .. (c2 and "CONNECTED" or tostring(err2)))
+  else texio.write_nl("PROBE: luasocket unavailable") end
+}
+x
+\end{document}

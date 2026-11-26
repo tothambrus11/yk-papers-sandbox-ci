@@ -1,0 +1,44 @@
+# CI setup for the Windows AppContainer matrix: TinyTeX, embeddable Python, the launcher, staged biber,
+# a dummy "user file" outside the sandbox, and the attack documents pointed at it.
+$ErrorActionPreference = 'Stop'
+$Root = Split-Path $PSScriptRoot -Parent
+Set-Location $Root
+$ProgressPreference = 'SilentlyContinue'
+
+# 1. TinyTeX-1 (TeX Live, about 100 packages) plus what the matrix needs
+if (-not (Test-Path "$Root\TinyTeX\bin\windows\pdflatex.exe")) {
+    Invoke-WebRequest 'https://github.com/rstudio/tinytex-releases/releases/latest/download/TinyTeX-1.zip' -OutFile tinytex.zip
+    Expand-Archive tinytex.zip -DestinationPath $Root; Remove-Item tinytex.zip
+}
+$env:PATH = "$Root\TinyTeX\bin\windows;$env:PATH"
+tlmgr install biblatex biber minted latexmk epstopdf epstopdf-pkg grfext pgf fontspec tex-gyre luaotfload xetex | Out-Host
+luaotfload-tool -u | Out-Host
+
+# 2. embeddable Python (never the runner's own Python)
+if (-not (Test-Path "$Root\python\python.exe")) {
+    # newest 3.13.x that has an embeddable build
+    $idx = (Invoke-WebRequest 'https://www.python.org/ftp/python/' -UseBasicParsing).Content
+    $vers = [regex]::Matches($idx, 'href="(3\.13\.\d+)/"') | % { [version]$_.Groups[1].Value } | Sort-Object -Descending
+    foreach ($v in $vers) { try { Invoke-WebRequest "https://www.python.org/ftp/python/$v/python-$v-embed-amd64.zip" -OutFile py.zip; break } catch { } }
+    "embeddable Python $v"
+    Expand-Archive py.zip -DestinationPath "$Root\python"; Remove-Item py.zip
+    Get-ChildItem "$Root\python\*._pth" | Rename-Item -NewName { $_.Name + '.bak' }
+}
+
+# 3. the launcher and the relocatable biber host
+& "$Root\src\build.ps1"
+& "$Root\src\stage-biber.ps1"
+
+# 4. a dummy secret outside the sandbox, in the runner user's profile, and the attack documents aimed at it
+$out = Join-Path $env:USERPROFILE 'yk-outside'
+New-Item -ItemType Directory -Force $out | Out-Null
+'DUMMY-SECRET-ci (test file, not real data)' | Set-Content "$out\secret.txt" -Encoding ascii
+New-Item -ItemType Directory -Force "$Root\outside" | Out-Null   # the matrix checks $Root\outside for pwned_*.txt
+$fwd = $out -replace '\\', '/'
+$str = ($out -split '\\') -join '\string\'
+Get-ChildItem "$Root\tests\docs" -Include *.tex, *.py -Recurse | ForEach-Object {
+    $t = [IO.File]::ReadAllText($_.FullName)
+    $t = $t.Replace('@OUTSIDE_FWD@', $fwd).Replace('@OUTSIDE_STR@', $str).Replace('@OUTSIDE_WIN@', $out)
+    [IO.File]::WriteAllText($_.FullName, $t)
+}
+"outside folder: $out"

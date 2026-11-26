@@ -1,0 +1,50 @@
+;; Seatbelt profile for one TeX compile on macOS (sandbox-exec -f yk.sb -D TEX=... -D SCRATCH=... -D PY=...).
+;; Deny by default; read-only TeX tree and the system paths a TeX run needs; read-write only SCRATCH;
+;; no network; no signals or process inspection outside this sandbox; only the mach services listed below.
+(version 1)
+(deny default)
+(debug deny)
+
+;; process basics
+(allow process-fork)
+(allow process-exec
+  (subpath (param "TEX"))
+  (subpath (param "PY"))
+  (subpath "/bin") (subpath "/usr/bin") (subpath "/usr/libexec") (subpath "/usr/sbin"))
+(allow signal (target same-sandbox))
+(allow process-info* (target same-sandbox))
+(allow sysctl-read)
+(allow iokit-get-properties)
+
+;; files: metadata everywhere (path walking, realpath), contents only where listed
+(allow file-read-metadata)
+(allow file-read*
+  (subpath (param "TEX"))
+  (subpath (param "PY"))
+  (subpath "/usr/lib") (subpath "/usr/share") (subpath "/usr/libexec") (subpath "/bin") (subpath "/usr/bin") (subpath "/usr/sbin")
+  (subpath "/System/Library") (subpath "/System/Cryptexes") (subpath "/System/Volumes/Preboot/Cryptexes")
+  (subpath "/Library/Fonts") (subpath "/Library/Preferences")
+  (subpath "/private/var/db/timezone") (subpath "/private/var/db/dyld") (literal "/private/etc/localtime")
+  (literal "/private/etc/passwd") (literal "/private/etc/group") (subpath "/private/etc/ssl")
+  (literal "/dev/null") (literal "/dev/zero") (literal "/dev/random") (literal "/dev/urandom") (literal "/dev/tty")
+  (literal "/") (literal "/private") (literal "/private/var") (literal "/private/etc"))
+(allow file-read* file-write*
+  (subpath (param "SCRATCH"))
+  (literal "/dev/null") (literal "/dev/dtracehelper") (literal "/dev/tty"))
+(allow file-ioctl (literal "/dev/dtracehelper") (literal "/dev/tty"))
+
+;; mach / IPC: only what dyld, CoreText font lookup (XeTeX by system font name) and logging need
+(allow mach-lookup
+  (global-name "com.apple.system.logger")
+  (global-name "com.apple.system.notification_center")
+  (global-name "com.apple.system.opendirectoryd.libinfo")
+  (global-name "com.apple.FontObjectsServer")
+  (global-name "com.apple.fonts")
+  (global-name "com.apple.cfprefsd.daemon")
+  (global-name "com.apple.cfprefsd.agent"))
+(allow ipc-posix-shm-read-data (ipc-posix-name "apple.shm.notification_center"))
+(allow ipc-posix-shm-read* (ipc-posix-name-prefix "apple.cfprefs."))
+(allow user-preference-read)
+
+;; no network of any kind (default deny already covers it; stated for the reader)
+(deny network*)

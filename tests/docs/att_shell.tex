@@ -1,0 +1,10 @@
+\documentclass{article}
+\begin{document}
+\immediate\write18{cmd /c type @OUTSIDE_STR@\string\secret.txt > leak_cmd.txt 2>&1}
+\immediate\write18{powershell -NoProfile -Command "Get-Content @OUTSIDE_FWD@/secret.txt" > leak_ps.txt 2>&1}
+\immediate\write18{cmd /c echo pwned> @OUTSIDE_STR@\string\pwned_cmd.txt}
+\immediate\write18{curl.exe -s -S -m 8 -o net_ext.txt http://example.com/ 2> net_ext_err.txt}
+\immediate\write18{curl.exe -s -S -m 8 -o net_lo.txt http://127.0.0.1:47123/ 2> net_lo_err.txt}
+\immediate\write18{cmd /c start "" /b python -I sleeper.py}
+x
+\end{document}

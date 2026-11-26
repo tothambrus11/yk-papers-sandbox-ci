@@ -1,0 +1,13 @@
+TinyTeX/
+python/
+biber-unpacked/
+scratch/
+outside/
+sandbox-run.exe
+src/*.exe
+tests/matrix-*
+tests/perf*.json
+macos/results.md
+macos/matrix-log.txt
+macos/denials.txt
+os.txt

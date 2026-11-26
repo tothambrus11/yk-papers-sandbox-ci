@@ -1,0 +1,77 @@
+name: sandbox matrix
+on:
+  workflow_dispatch:
+  push:
+    branches: [ci-sandbox]
+permissions:
+  contents: read
+jobs:
+  windows:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-2022, windows-2025, windows-11-arm]
+    runs-on: ${{ matrix.os }}
+    continue-on-error: true
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: OS build
+        shell: pwsh
+        run: |
+          $cv = Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion'
+          "$($cv.ProductName) $($cv.DisplayVersion) build $($cv.CurrentBuild).$($cv.UBR) $env:PROCESSOR_ARCHITECTURE" | Tee-Object os.txt
+      - uses: actions/cache@v4
+        with:
+          path: TinyTeX
+          key: tinytex-${{ matrix.os }}-v1
+      - name: Setup (TinyTeX, Python, launcher, biber host)
+        shell: powershell
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File ci\setup-windows.ps1
+      - name: Matrix, LPAC + registryRead
+        shell: powershell
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File tests\run-matrix.ps1 -Lpac
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: windows-${{ matrix.os }}
+          path: |
+            os.txt
+            tests/matrix-*.md
+            tests/matrix-*.csv
+            tests/matrix-log*.txt
+            tests/perf*.json
+  macos:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-15, macos-15-intel, macos-13]
+    runs-on: ${{ matrix.os }}
+    continue-on-error: true
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: OS build
+        run: (sw_vers; uname -m) | tee os.txt
+      - uses: actions/cache@v4
+        with:
+          path: ~/Library/TinyTeX
+          key: tinytex-${{ matrix.os }}-v1
+      - name: Setup (TinyTeX, caches, dummy secret)
+        run: bash macos/setup-macos.sh
+      - name: Matrix, Seatbelt (sandbox-exec)
+        run: bash macos/run-matrix.sh
+      - name: Sandbox denials seen during the run
+        if: always()
+        run: |
+          sudo log show --last 20m --style compact --predicate 'sender == "Sandbox"' 2>/dev/null \
+            | grep -o 'deny([0-9]*) [a-z0-9*-]* [^ ]*' | sed -E 's/deny\([0-9]+\) //' | sort | uniq -c | sort -rn | head -80 | tee macos/denials.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: macos-${{ matrix.os }}
+          path: |
+            os.txt
+            macos/results.md
+            macos/matrix-log.txt
+            macos/denials.txt
