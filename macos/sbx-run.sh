@@ -16,6 +16,7 @@ s=$(perl -MTime::HiRes=time -e 'printf "%.0f", time*1000')
 # perl setpgrp: new process group so the whole tree can be killed at the deadline
 perl -e 'setpgrp(0,0); exec @ARGV' /usr/bin/env -i \
   PATH="$YK_TEXBIN:$YK_PY/bin:/usr/bin:/bin" HOME="$SCR" TMPDIR="$SCR/.tmp" LANG=en_US.UTF-8 \
+  DEVELOPER_DIR="${YK_DEVDIR:-$(xcode-select -p 2>/dev/null)}" \
   TEXMFVAR="$SCR/.texmf-var" TEXMFCONFIG="$SCR/.texmf-var" TEXMFHOME="$SCR/texmf" \
   /usr/bin/sandbox-exec -f "$HERE/yk.sb" -D TEX="$YK_TEX" -D PY="$YK_PY" -D SCRATCH="$SCR" \
   /bin/bash -c "$LIM exec \"\$@\"" sbx "$@" &

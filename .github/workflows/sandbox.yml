@@ -31,6 +31,16 @@ jobs:
       - name: Matrix, LPAC + registryRead
         shell: powershell
         run: powershell -NoProfile -ExecutionPolicy Bypass -File tests\run-matrix.ps1 -Lpac
+      - name: Matrix, plain AppContainer (to compare the shell-escape crashes)
+        if: always()
+        shell: powershell
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File tests\run-matrix.ps1
+      - name: Crash reports (Application Error events) during the run
+        if: always()
+        shell: powershell
+        run: |
+          Get-WinEvent -FilterHashtable @{LogName='Application'; Id=1000; StartTime=(Get-Date).AddMinutes(-40)} -ErrorAction SilentlyContinue |
+            Select-Object -First 15 | ForEach-Object { ($_.Properties | ForEach-Object { $_.Value }) -join ' | ' } | Tee-Object tests\crash-events.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -41,6 +51,7 @@ jobs:
             tests/matrix-*.csv
             tests/matrix-log*.txt
             tests/perf*.json
+            tests/crash-events.txt
   macos:
     strategy:
       fail-fast: false
