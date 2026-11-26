@@ -1,9 +1,0 @@
-﻿{
-    "runs":  7,
-    "native_ms":  "72, 68, 69, 69, 69, 68, 69",
-    "sandbox_ms":  "113, 112, 113, 112, 113, 112, 115",
-    "native_median":  69,
-    "sandbox_median":  113,
-    "cmd_exit_native_avg":  5,
-    "cmd_exit_sandbox_avg":  51
-}
