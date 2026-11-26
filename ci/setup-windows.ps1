@@ -16,7 +16,7 @@ if (-not (Test-Path "$Root\TinyTeX\bin\windows\pdflatex.exe")) {
 }
 $env:PATH = "$Root\TinyTeX\bin\windows;$env:PATH"
 tlmgr update --self | Out-Host   # the release's tlmgr can be older than the repository requires
-tlmgr install biblatex biber minted latexmk epstopdf epstopdf-pkg grfext pgf fontspec tex-gyre luaotfload xetex | Out-Host
+tlmgr install makeindex biblatex biber minted latexmk epstopdf epstopdf-pkg grfext pgf fontspec tex-gyre luaotfload xetex | Out-Host
 luaotfload-tool -u | Out-Host
 
 # 2. embeddable Python (never the runner's own Python)

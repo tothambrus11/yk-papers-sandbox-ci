@@ -64,6 +64,13 @@ $x = Test-Pdf $g 'minted, -shell-escape' 'w_minted_se' @('minted.tex') @('pdflat
 $x = Test-Pdf $g 'epstopdf via restricted shell escape (Ghostscript tlgs)' 'w_eps' @('eps.tex', 'fig.eps') @('pdflatex -interaction=nonstopmode eps.tex') 'eps'
 $x = Test-Pdf $g 'TikZ externalize (nested pdflatex)' 'w_tikz' @('tikzext.tex') @('pdflatex -shell-escape -interaction=nonstopmode tikzext.tex') 'tikzext'
 if ($x.r.Code -eq 0) { $fig = Get-ChildItem $x.dir -Filter 'tikzext-figure0.pdf'; Add-Result $g 'TikZ externalize: figure pdf produced' ([bool]$fig) $(if ($fig) { 'tikzext-figure0.pdf exists' } else { 'no externalized figure' }) $null }
+# control: the same two shell-escape documents OUTSIDE the sandbox, to tell a TeX crash from a sandbox effect
+foreach ($c in @(@('eps', @('eps.tex', 'fig.eps'), 'pdflatex -interaction=nonstopmode eps.tex'), @('tikzext', @('tikzext.tex'), 'pdflatex -shell-escape -interaction=nonstopmode tikzext.tex'))) {
+    $nd = Join-Path $Root "scratch\native_$($c[0])"; if (Test-Path $nd) { Remove-Item -Recurse -Force $nd }; New-Item -ItemType Directory $nd | Out-Null
+    foreach ($f in $c[1]) { Copy-Item (Join-Path $Docs $f) $nd }
+    Push-Location $nd; $env:PATH = "$TeXBin;$env:PATH"; $p = Start-Process -FilePath cmd.exe -ArgumentList "/d /c $($c[2]) > out.txt 2>&1" -Wait -PassThru -NoNewWindow; Pop-Location
+    Add-Result 'control' "native (no sandbox): $($c[0]) exit code" $true ("exit $($p.ExitCode); pdf: " + (Test-Path (Join-Path $nd "$($c[0]).pdf"))) $null
+}
 foreach ($e in 'xelatex', 'lualatex') {
     $d = New-Case "w_ff_$e" @('fontfile.tex'); New-Item -ItemType Directory "$d\fonts" | Out-Null; Copy-Item "$Docs\texgyrepagella-regular.otf" "$d\fonts\"
     $r = Invoke-Sbx "$e -interaction=nonstopmode fontfile.tex" "w_ff_$e"

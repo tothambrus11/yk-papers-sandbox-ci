@@ -1,0 +1,685 @@
+
+==== [works] pdflatex small doc -> PASS
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./basic.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+(z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo)) (z:/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def)
+No file basic.aux.
+[1{z:/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./basic.aux) )<z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb>
+Output written on basic.pdf (1 page, 39726 bytes).
+Transcript written on basic.log.
+
+[sandbox-run] exit=0 wall=265ms setup=1797ms procs=2 peakJobMem=106MB events=none lpac
+
+==== [works] xelatex small doc -> PASS
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+ restricted \write18 enabled.
+entering extended mode
+(./basic.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+(z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo)) (z:/texmf-dist/tex/latex/l3kernel/l3backend-xetex.def)
+No file basic.aux.
+[1] (./basic.aux) )
+Output written on basic.pdf (1 page).
+Transcript written on basic.log.
+
+[sandbox-run] exit=0 wall=4875ms setup=41ms procs=4 peakJobMem=319MB events=none lpac
+
+==== [works] lualatex small doc -> PASS
+This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+ restricted system commands enabled.
+(./basic.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+ (z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo
+luaotfload | db : Font names database not found, generating new one.
+luaotfload | db : This can take several minutes; please be patient.)) (z:/texmf-dist/tex/latex/l3kernel/l3backend-luatex.def)
+No file basic.aux.
+[1{z:/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./basic.aux))
+ 406 words of node memory still in use:
+   3 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 1 glyph, 4 attribute, 48 glue_spec, 4 attribute_list, 1 write nodes
+   avail lists: 2:36,3:14,4:1,5:28,6:2,7:122,8:10,9:44,11:2
+<z:/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb>
+Output written on basic.pdf (1 page, 37667 bytes).
+Transcript written on basic.log.
+
+[sandbox-run] exit=0 wall=2812ms setup=32ms procs=2 peakJobMem=152MB events=none lpac
+
+==== [works] bibtex -> PASS
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./bibtex.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+(z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo)) (z:/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def) (./bibtex.aux)
+
+LaTeX Warning: Citation `knuth' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Citation `lamport' on page 1 undefined on input line 3.
+
+(./bibtex.bbl) [1{z:/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./bibtex.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )<z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on bibtex.pdf (1 page, 48328 bytes).
+Transcript written on bibtex.log.
+
+[sandbox-run] exit=0 wall=261ms setup=31ms procs=2 peakJobMem=107MB events=none lpac
+
+==== [works] biber (PAR-packed exe) -> PASS
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./biber.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+(z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo)) (z:/texmf-dist/tex/latex/biblatex/biblatex.sty (z:/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (z:/texmf-dist/tex/generic/infwarerr/infwarerr.sty) (z:/texmf-dist/tex/generic/iftex/iftex.sty) (z:/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)) (z:/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (z:/texmf-dist/tex/latex/graphics/keyval.sty) (z:/texmf-dist/tex/latex/kvoptions/kvoptions.sty (z:/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)) (z:/texmf-dist/tex/latex/logreq/logreq.sty (z:/texmf-dist/tex/latex/logreq/logreq.def)) (z:/texmf-dist/tex/latex/base/ifthen.sty) (z:/texmf-dist/tex/latex/url/url.sty) (z:/texmf-dist/tex/latex/biblatex/blx-dm.def) (z:/texmf-dist/tex/latex/biblatex/blx-compat.def) (z:/texmf-dist/tex/latex/biblatex/biblatex.def) (z:/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx (z:/texmf-dist/tex/latex/biblatex/bbx/standard.bbx)) (z:/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx) (z:/texmf-dist/tex/latex/biblatex/biblatex.cfg) (z:/texmf-dist/tex/latex/l3kernel/expl3.sty (z:/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def)) (z:/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty (z:/texmf-dist/tex/latex/l3packages/xparse/xparse.sty))) (./biber.aux) (z:/texmf-dist/tex/latex/biblatex/lbx/english.lbx) (./biber.bbl) [1{z:/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./biber.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+Package biblatex Warning: Please rerun LaTeX.
+
+ )<z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on biber.pdf (1 page, 39845 bytes).
+Transcript written on biber.log.
+
+[sandbox-run] exit=0 wall=1023ms setup=32ms procs=2 peakJobMem=107MB events=none lpac
+
+==== [works] makeindex -> FAIL
+
+[sandbox-run] ERROR: not found on sandbox PATH: makeindex
+
+==== [works] latexmk (Perl) full biber build -> PASS
+Initial Win CP for (console input, console output, system): (CP437, CP437, CP1252)
+I changed them all to CP1252
+Rc files read (in order):
+  NONE
+Latexmk: This is Latexmk, John Collins, 9 March 2026. Version 4.88.
+No existing .aux file, so I'll make a simple one, and require run of *latex.
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Category 'other':
+  Rerun of 'pdflatex' forced or previously required:
+    Reason or flag: 'Initial setup'
+
+------------
+Run number 1 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -recorder  "biber.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./biber.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+(z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo)) (z:/texmf-dist/tex/latex/biblatex/biblatex.sty (z:/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (z:/texmf-dist/tex/generic/infwarerr/infwarerr.sty) (z:/texmf-dist/tex/generic/iftex/iftex.sty) (z:/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)) (z:/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (z:/texmf-dist/tex/latex/graphics/keyval.sty) (z:/texmf-dist/tex/latex/kvoptions/kvoptions.sty (z:/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)) (z:/texmf-dist/tex/latex/logreq/logreq.sty (z:/texmf-dist/tex/latex/logreq/logreq.def)) (z:/texmf-dist/tex/latex/base/ifthen.sty) (z:/texmf-dist/tex/latex/url/url.sty) (z:/texmf-dist/tex/latex/biblatex/blx-dm.def) (z:/texmf-dist/tex/latex/biblatex/blx-compat.def) (z:/texmf-dist/tex/latex/biblatex/biblatex.def) (z:/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx (z:/texmf-dist/tex/latex/biblatex/bbx/standard.bbx)) (z:/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx) (z:/texmf-dist/tex/latex/biblatex/biblatex.cfg) (z:/texmf-dist/tex/latex/l3kernel/expl3.sty (z:/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def)) (z:/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty (z:/texmf-dist/tex/latex/l3packages/xparse/xparse.sty))) (./biber.aux) (z:/texmf-dist/tex/latex/biblatex/lbx/english.lbx)
+No file biber.bbl.
+
+LaTeX Warning: Citation 'knuth' on page 1 undefined on input line 5.
+
+
+LaTeX Warning: Citation 'lamport' on page 1 undefined on input line 5.
+
+
+LaTeX Warning: Empty bibliography on input line 6.
+
+[1{z:/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./biber.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                biber
+(biblatex)                and rerun LaTeX afterwards.
+
+ )<z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on biber.pdf (1 page, 24358 bytes).
+Transcript written on biber.log.
+Latexmk: Getting log file 'biber.log'
+Latexmk: Examining 'biber.fls'
+Latexmk: Examining 'biber.log'
+Latexmk: Log file says output to 'biber.pdf'
+Latexmk: Bibliography file(s) from .bcf file:
+  refs.bib
+Sources for biber
+  refs.bib
+  biber.bcf
+Latexmk: applying rule 'biber biber'...
+Rule 'biber biber':  Reasons for rerun
+Category 'other':
+  Rerun of 'biber biber' forced or previously required:
+    Reason or flag: 'Initial set up of rule'
+
+------------
+Run number 1 of rule 'biber biber'
+------------
+------------
+Running 'biber  "biber.bcf"'
+------------
+INFO - This is Biber 2.22
+INFO - Logfile is 'biber.blg'
+INFO - Reading 'biber.bcf'
+INFO - Found 2 citekeys in bib section 0
+INFO - Processing section 0
+INFO - Looking for bibtex file 'refs.bib' for section 0
+INFO - LaTeX decoding ...
+INFO - Found BibTeX data source 'refs.bib'
+INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'en-US'
+INFO - No sort tailoring available for locale 'en-US'
+INFO - Writing 'biber.bbl' with encoding 'UTF-8'
+INFO - Output to biber.bbl
+Latexmk: Found biber source file(s) [biber.bcf, refs.bib]
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  biber.aux
+  biber.bbl
+
+------------
+Run number 2 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -recorder  "biber.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./biber.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+(z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo)) (z:/texmf-dist/tex/latex/biblatex/biblatex.sty (z:/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (z:/texmf-dist/tex/generic/infwarerr/infwarerr.sty) (z:/texmf-dist/tex/generic/iftex/iftex.sty) (z:/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)) (z:/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (z:/texmf-dist/tex/latex/graphics/keyval.sty) (z:/texmf-dist/tex/latex/kvoptions/kvoptions.sty (z:/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)) (z:/texmf-dist/tex/latex/logreq/logreq.sty (z:/texmf-dist/tex/latex/logreq/logreq.def)) (z:/texmf-dist/tex/latex/base/ifthen.sty) (z:/texmf-dist/tex/latex/url/url.sty) (z:/texmf-dist/tex/latex/biblatex/blx-dm.def) (z:/texmf-dist/tex/latex/biblatex/blx-compat.def) (z:/texmf-dist/tex/latex/biblatex/biblatex.def) (z:/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx (z:/texmf-dist/tex/latex/biblatex/bbx/standard.bbx)) (z:/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx) (z:/texmf-dist/tex/latex/biblatex/biblatex.cfg) (z:/texmf-dist/tex/latex/l3kernel/expl3.sty (z:/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def)) (z:/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty (z:/texmf-dist/tex/latex/l3packages/xparse/xparse.sty))) (./biber.aux) (z:/texmf-dist/tex/latex/biblatex/lbx/english.lbx) (./biber.bbl) [1{z:/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./biber.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+Package biblatex Warning: Please rerun LaTeX.
+
+ )<z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on biber.pdf (1 page, 39845 bytes).
+Transcript written on biber.log.
+Latexmk: Getting log file 'biber.log'
+Latexmk: Examining 'biber.fls'
+Latexmk: Examining 'biber.log'
+Latexmk: Found input bbl file 'biber.bbl'
+Latexmk: Log file says output to 'biber.pdf'
+Latexmk: Bibliography file(s) from .bcf file:
+  refs.bib
+Sources for biber
+  refs.bib
+  biber.bcf
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  biber.aux
+  biber.run.xml
+
+------------
+Run number 3 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -recorder  "biber.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./biber.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+(z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo)) (z:/texmf-dist/tex/latex/biblatex/biblatex.sty (z:/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (z:/texmf-dist/tex/generic/infwarerr/infwarerr.sty) (z:/texmf-dist/tex/generic/iftex/iftex.sty) (z:/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)) (z:/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (z:/texmf-dist/tex/latex/graphics/keyval.sty) (z:/texmf-dist/tex/latex/kvoptions/kvoptions.sty (z:/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)) (z:/texmf-dist/tex/latex/logreq/logreq.sty (z:/texmf-dist/tex/latex/logreq/logreq.def)) (z:/texmf-dist/tex/latex/base/ifthen.sty) (z:/texmf-dist/tex/latex/url/url.sty) (z:/texmf-dist/tex/latex/biblatex/blx-dm.def) (z:/texmf-dist/tex/latex/biblatex/blx-compat.def) (z:/texmf-dist/tex/latex/biblatex/biblatex.def) (z:/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx (z:/texmf-dist/tex/latex/biblatex/bbx/standard.bbx)) (z:/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx) (z:/texmf-dist/tex/latex/biblatex/biblatex.cfg) (z:/texmf-dist/tex/latex/l3kernel/expl3.sty (z:/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def)) (z:/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty (z:/texmf-dist/tex/latex/l3packages/xparse/xparse.sty))) (./biber.aux) (z:/texmf-dist/tex/latex/biblatex/lbx/english.lbx) (./biber.bbl) [1{z:/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./biber.aux) )<z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on biber.pdf (1 page, 39845 bytes).
+Transcript written on biber.log.
+Latexmk: Getting log file 'biber.log'
+Latexmk: Examining 'biber.fls'
+Latexmk: Examining 'biber.log'
+Latexmk: Found input bbl file 'biber.bbl'
+Latexmk: Log file says output to 'biber.pdf'
+Latexmk: Bibliography file(s) from .bcf file:
+  refs.bib
+Sources for biber
+  refs.bib
+  biber.bcf
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  biber.run.xml
+
+------------
+Run number 4 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -recorder  "biber.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./biber.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+(z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo)) (z:/texmf-dist/tex/latex/biblatex/biblatex.sty (z:/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (z:/texmf-dist/tex/generic/infwarerr/infwarerr.sty) (z:/texmf-dist/tex/generic/iftex/iftex.sty) (z:/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)) (z:/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (z:/texmf-dist/tex/latex/graphics/keyval.sty) (z:/texmf-dist/tex/latex/kvoptions/kvoptions.sty (z:/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)) (z:/texmf-dist/tex/latex/logreq/logreq.sty (z:/texmf-dist/tex/latex/logreq/logreq.def)) (z:/texmf-dist/tex/latex/base/ifthen.sty) (z:/texmf-dist/tex/latex/url/url.sty) (z:/texmf-dist/tex/latex/biblatex/blx-dm.def) (z:/texmf-dist/tex/latex/biblatex/blx-compat.def) (z:/texmf-dist/tex/latex/biblatex/biblatex.def) (z:/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx (z:/texmf-dist/tex/latex/biblatex/bbx/standard.bbx)) (z:/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx) (z:/texmf-dist/tex/latex/biblatex/biblatex.cfg) (z:/texmf-dist/tex/latex/l3kernel/expl3.sty (z:/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def)) (z:/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty (z:/texmf-dist/tex/latex/l3packages/xparse/xparse.sty))) (./biber.aux) (z:/texmf-dist/tex/latex/biblatex/lbx/english.lbx) (./biber.bbl) [1{z:/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./biber.aux) )<z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on biber.pdf (1 page, 39845 bytes).
+Transcript written on biber.log.
+Latexmk: Getting log file 'biber.log'
+Latexmk: Examining 'biber.fls'
+Latexmk: Examining 'biber.log'
+Latexmk: Found input bbl file 'biber.bbl'
+Latexmk: Log file says output to 'biber.pdf'
+Latexmk: Bibliography file(s) from .bcf file:
+  refs.bib
+Sources for biber
+  refs.bib
+  biber.bcf
+Latexmk: All targets (biber.pdf) are up-to-date
+
+
+Latexmk: Missing bbl file 'biber.bbl' in following:
+ No file biber.bbl.
+Latexmk: Using biber to make bibliography file(s).
+Latexmk: Using biber to make bibliography file(s).
+Latexmk: Using biber to make bibliography file(s).
+Latexmk: Using biber to make bibliography file(s).
+Reverting Windows console CPs to (in,out) = (437,437)
+[sandbox-run] exit=0 wall=8247ms setup=32ms procs=9 peakJobMem=276MB events=none lpac
+
+==== [works] minted, no -shell-escape (restricted) -> PASS
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./minted.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+(z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo)) (z:/texmf-dist/tex/latex/minted/minted.sty (z:/texmf-dist/tex/generic/catchfile/catchfile.sty (z:/texmf-dist/tex/generic/infwarerr/infwarerr.sty) (z:/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty) (z:/texmf-dist/tex/generic/etexcmds/etexcmds.sty (z:/texmf-dist/tex/generic/iftex/iftex.sty))) (z:/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (z:/texmf-dist/tex/latex/fvextra/fvextra.sty (z:/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty (z:/texmf-dist/tex/latex/graphics/keyval.sty)) (z:/texmf-dist/tex/latex/upquote/upquote.sty) (z:/texmf-dist/tex/latex/lineno/lineno.sty (z:/texmf-dist/tex/latex/kvoptions/kvoptions.sty (z:/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)))) (z:/texmf-dist/tex/latex/latex2pydata/latex2pydata.sty) (z:/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (z:/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex (z:/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex))) (z:/texmf-dist/tex/latex/pgfopts/pgfopts.sty) (z:/texmf-dist/tex/latex/tools/shellesc.sty) (z:/texmf-dist/tex/latex/float/float.sty)) (z:/texmf-dist/tex/latex/xcolor/xcolor.sty (z:/texmf-dist/tex/latex/graphics-cfg/color.cfg) (z:/texmf-dist/tex/latex/graphics-def/pdftex.def) (z:/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (z:/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def)
+No file minted.aux.
+(./_4B2C4DCFC01CAC9A960EFD78DCDD3194.config.minted) [1{z:/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./minted.aux) )<z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on minted.pdf (1 page, 18669 bytes).
+Transcript written on minted.log.
+
+[sandbox-run] exit=0 wall=3385ms setup=32ms procs=20 peakJobMem=183MB events=none lpac
+
+==== [works] minted, -shell-escape -> PASS
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ \write18 enabled.
+entering extended mode
+(./minted.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+(z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo)) (z:/texmf-dist/tex/latex/minted/minted.sty (z:/texmf-dist/tex/generic/catchfile/catchfile.sty (z:/texmf-dist/tex/generic/infwarerr/infwarerr.sty) (z:/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty) (z:/texmf-dist/tex/generic/etexcmds/etexcmds.sty (z:/texmf-dist/tex/generic/iftex/iftex.sty))) (z:/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (z:/texmf-dist/tex/latex/fvextra/fvextra.sty (z:/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty (z:/texmf-dist/tex/latex/graphics/keyval.sty)) (z:/texmf-dist/tex/latex/upquote/upquote.sty) (z:/texmf-dist/tex/latex/lineno/lineno.sty (z:/texmf-dist/tex/latex/kvoptions/kvoptions.sty (z:/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)))) (z:/texmf-dist/tex/latex/latex2pydata/latex2pydata.sty) (z:/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (z:/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex (z:/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex))) (z:/texmf-dist/tex/latex/pgfopts/pgfopts.sty) (z:/texmf-dist/tex/latex/tools/shellesc.sty) (z:/texmf-dist/tex/latex/float/float.sty)) (z:/texmf-dist/tex/latex/xcolor/xcolor.sty (z:/texmf-dist/tex/latex/graphics-cfg/color.cfg) (z:/texmf-dist/tex/latex/graphics-def/pdftex.def) (z:/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (z:/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def)
+No file minted.aux.
+(./_4B2C4DCFC01CAC9A960EFD78DCDD3194.config.minted) [1{z:/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./minted.aux) )<z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on minted.pdf (1 page, 18669 bytes).
+Transcript written on minted.log.
+
+[sandbox-run] exit=0 wall=3411ms setup=31ms procs=20 peakJobMem=183MB events=none lpac
+
+==== [works] epstopdf via restricted shell escape (Ghostscript tlgs) -> PASS
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./eps.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+(z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo)) (z:/texmf-dist/tex/latex/graphics/graphicx.sty (z:/texmf-dist/tex/latex/graphics/keyval.sty) (z:/texmf-dist/tex/latex/graphics/graphics.sty (z:/texmf-dist/tex/latex/graphics/trig.sty) (z:/texmf-dist/tex/latex/graphics-cfg/graphics.cfg) (z:/texmf-dist/tex/latex/graphics-def/pdftex.def))) (z:/texmf-dist/tex/latex/epstopdf-pkg/epstopdf.sty (z:/texmf-dist/tex/generic/infwarerr/infwarerr.sty) (z:/texmf-dist/tex/latex/grfext/grfext.sty (z:/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)) (z:/texmf-dist/tex/latex/kvoptions/kvoptions.sty (z:/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty) (z:/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)) (z:/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (z:/texmf-dist/tex/generic/iftex/iftex.sty)) (z:/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty (z:/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))) (z:/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def)
+No file eps.aux.
+[1{z:/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./fig-eps-converted-to.pdf>] (./eps.aux) )<z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on eps.pdf (1 page, 9486 bytes).
+Transcript written on eps.log.
+
+[sandbox-run] exit=0 wall=1401ms setup=31ms procs=8 peakJobMem=181MB events=none lpac
+
+==== [works] TikZ externalize (nested pdflatex) -> FAIL
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ \write18 enabled.
+entering extended mode
+(./tikzext.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+(z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo)) (z:/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (z:/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (z:/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (z:/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex) (z:/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def) (z:/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (z:/texmf-dist/tex/generic/pgf/pgf.revision.tex))) (z:/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (z:/texmf-dist/tex/latex/graphics/graphicx.sty (z:/texmf-dist/tex/latex/graphics/keyval.sty) (z:/texmf-dist/tex/latex/graphics/graphics.sty (z:/texmf-dist/tex/latex/graphics/trig.sty) (z:/texmf-dist/tex/latex/graphics-cfg/graphics.cfg) (z:/texmf-dist/tex/latex/graphics-def/pdftex.def))) (z:/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (z:/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex (z:/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex (z:/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex)) (z:/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg) (z:/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def (z:/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def))) (z:/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex) (z:/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex)) (z:/texmf-dist/tex/latex/xcolor/xcolor.sty (z:/texmf-dist/tex/latex/graphics-cfg/color.cfg) (z:/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (z:/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex (z:/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (z:/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (z:/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex) (z:/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (z:/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (z:/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (z:/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (z:/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (z:/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (z:/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (z:/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (z:/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (z:/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (z:/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex)) (z:/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (z:/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex) (z:/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex) (z:/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex) (z:/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex) (z:/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex) (z:/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex) (z:/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex) (z:/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex) (z:/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex) (z:/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex) (z:/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex) (z:/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex) (z:/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex) (z:/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex) (z:/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex) (z:/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex) (z:/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex))) (z:/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex) (z:/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex) (z:/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty) (z:/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty)) (z:/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (z:/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (z:/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (z:/texmf-dist/tex/latex/pgf/math/pgfmath.sty (z:/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (z:/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex)) (z:/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex (z:/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex) (z:/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex) (z:/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex))) (z:/texmf-dist/tex/latex/pgf/frontendlayer/libraries/tikzlibraryexternal.code.tex (z:/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (z:/texmf-dist/tex/generic/infwarerr/infwarerr.sty) (z:/texmf-dist/tex/generic/iftex/iftex.sty) (z:/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)) (z:/texmf-dist/tex/latex/base/atveryend-ltx.sty) (z:/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzexternalshared.code.tex)) (z:/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def)
+No file tikzext.aux.
+(z:/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty (z:/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ \write18 enabled.
+entering extended mode
+
+===== 'mode=convert with system call': Invoking 'pdflatex -shell-escape -halt-on-error -interaction=batchmode -jobname "tikzext-figure0" "\def\tikzexternalrealjob{tikzext}\input{tikzext}"' ========
+[1{z:/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./tikzext-figure0.pdf>] (./tikzext.aux) )<z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+[sandbox-run] exit=-1073741819 wall=1539ms setup=31ms procs=4 peakJobMem=228MB events=none lpac
+
+==== [works] fontspec font file from scratch (xelatex) -> PASS
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+ restricted \write18 enabled.
+entering extended mode
+(./fontfile.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+(z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo)) (z:/texmf-dist/tex/latex/fontspec/fontspec.sty (z:/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty (z:/texmf-dist/tex/latex/base/fontenc.sty) (z:/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (z:/texmf-dist/tex/latex/l3kernel/l3backend-xetex.def)
+No file fontfile.aux.
+[1] (./fontfile.aux) )
+Output written on fontfile.pdf (1 page).
+Transcript written on fontfile.log.
+
+[sandbox-run] exit=0 wall=2143ms setup=32ms procs=4 peakJobMem=319MB events=none lpac
+
+==== [works] fontspec system font by name, Arial (xelatex) -> PASS
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex)
+ restricted \write18 enabled.
+entering extended mode
+(./fontsys.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+(z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo)) (z:/texmf-dist/tex/latex/fontspec/fontspec.sty (z:/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty (z:/texmf-dist/tex/latex/base/fontenc.sty) (z:/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (z:/texmf-dist/tex/latex/l3kernel/l3backend-xetex.def)
+No file fontsys.aux.
+[1] (./fontsys.aux) )
+Output written on fontsys.pdf (1 page).
+Transcript written on fontsys.log.
+
+[sandbox-run] exit=0 wall=2225ms setup=31ms procs=4 peakJobMem=321MB events=none lpac
+
+==== [works] fontspec font file from scratch (lualatex) -> PASS
+This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+ restricted system commands enabled.
+(./fontfile.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+ (z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo)) (z:/texmf-dist/tex/latex/fontspec/fontspec.sty (z:/texmf-dist/tex/latex/fontspec/fontspec-luatex.sty (z:/texmf-dist/tex/latex/base/fontenc.sty) (z:/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (z:/texmf-dist/tex/latex/l3kernel/l3backend-luatex.def)
+No file fontfile.aux.
+[1{z:/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./fontfile.aux))
+ 406 words of node memory still in use:
+   3 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 1 glyph, 4 attribute, 48 glue_spec, 4 attribute_list, 1 write nodes
+   avail lists: 1:1,2:26,3:4,4:1,5:29,6:2,7:120,9:18,11:2
+<./fonts/texgyrepagella-regular.otf>
+Output written on fontfile.pdf (1 page, 4539 bytes).
+Transcript written on fontfile.log.
+
+[sandbox-run] exit=0 wall=1729ms setup=32ms procs=2 peakJobMem=139MB events=none lpac
+
+==== [works] fontspec system font by name, Arial (lualatex) -> PASS
+This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+ restricted system commands enabled.
+(./fontsys.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+ (z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo)) (z:/texmf-dist/tex/latex/fontspec/fontspec.sty (z:/texmf-dist/tex/latex/fontspec/fontspec-luatex.sty (z:/texmf-dist/tex/latex/base/fontenc.sty) (z:/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (z:/texmf-dist/tex/latex/l3kernel/l3backend-luatex.def)
+No file fontsys.aux.
+[1{z:/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./fontsys.aux))
+ 406 words of node memory still in use:
+   3 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 1 glyph, 4 attribute, 48 glue_spec, 4 attribute_list, 1 write nodes
+   avail lists: 1:1,2:26,3:4,4:1,5:22,6:2,7:104,9:18,11:6
+<c:/Windows/fonts/arial.ttf>
+Output written on fontsys.pdf (1 page, 29065 bytes).
+Transcript written on fontsys.log.
+
+[sandbox-run] exit=0 wall=4212ms setup=32ms procs=2 peakJobMem=250MB events=none lpac
+
+==== [confined] \input of user file outside scratch -> PASS
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ \write18 enabled.
+entering extended mode
+(./att_input.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+(z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo)) (z:/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def)
+No file att_input.aux.
+PROBE: SECRET-NOT-READABLE
+[1{z:/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./att_input.aux) )<z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on att_input.pdf (1 page, 9522 bytes).
+Transcript written on att_input.log.
+
+c:/Users/runneradmin/yk-outside/secret.txt: Permission denied
+c:/Users/runneradmin/yk-outside/secret.txt: Permission denied
+c:/Users/runneradmin/yk-outside/secret.txt: Permission denied
+c:/Users/runneradmin/yk-outside/secret.txt: Permission denied
+[sandbox-run] exit=0 wall=250ms setup=33ms procs=2 peakJobMem=106MB events=none lpac
+
+==== [confined] \write18 reads secret via cmd -> PASS
+==== [confined] \write18 reads secret via ps -> PASS
+==== [confined] \write18 writes file outside scratch -> PASS
+==== [confined] \write18 curl http://example.com -> PASS
+==== [confined] \write18 curl http://127.0.0.1 (host listener) -> PASS
+==== [confined] shell-escape run summary -> PASS
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ \write18 enabled.
+entering extended mode
+(./att_shell.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+(z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo)) (z:/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def)
+No file att_shell.aux.
+[1{z:/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./att_shell.aux) )<z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on att_shell.pdf (1 page, 9522 bytes).
+Transcript written on att_shell.log.
+
+system returned with code 1
+system returned with code -65536
+Access is denied.
+system returned with code 1
+system returned with code 6
+system returned with code 7
+[sandbox-run] exit=0 wall=2507ms setup=32ms procs=14 peakJobMem=164MB events=KILLED_2_STRAGGLERS lpac
+
+==== [confined] detached child outlives the job (start /b) -> PASS
+==== [confined] lualatex io.open / os.execute / luasocket -> PASS
+This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+ system commands enabled.
+(./att_lua.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+ (z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo)) (z:/texmf-dist/tex/latex/l3kernel/l3backend-luatex.def)
+No file att_lua.aux.
+PROBE: lua io.open secret -> denied
+PROBE: os.execute ran -> 1
+PROBE: luasocket connect -> permission denied
+PROBE: luasocket loopback -> permission denied [1{z:/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./att_lua.aux))
+ 406 words of node memory still in use:
+   3 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 1 glyph, 4 attribute, 48 glue_spec, 4 attribute_list, 1 write nodes
+   avail lists: 2:26,3:4,4:1,5:22,6:2,7:28,9:18
+<z:/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf>
+Output written on att_lua.pdf (1 page, 2643 bytes).
+Transcript written on att_lua.log.
+
+[sandbox-run] exit=0 wall=1200ms setup=33ms procs=4 peakJobMem=135MB events=none lpac
+
+==== [confined] python direct: read -> PASS
+PROBE read: denied (PermissionError: Permission denied)
+
+[sandbox-run] exit=0 wall=272ms setup=32ms procs=2 peakJobMem=23MB events=none lpac
+
+==== [confined] python direct: write -> PASS
+PROBE write: denied (PermissionError)
+
+[sandbox-run] exit=0 wall=265ms setup=33ms procs=2 peakJobMem=23MB events=none lpac
+
+==== [confined] python direct: net -> PASS
+PROBE tcp example.com:80: blocked (gaierror: [Errno 11003] getaddrinfo failed)
+PROBE tcp 93.184.215.14:80: blocked (PermissionError: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions)
+PROBE tcp 1.1.1.1:443: blocked (PermissionError: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions)
+PROBE tcp 127.0.0.1:47123: blocked (PermissionError: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions)
+PROBE listen 127.0.0.1: blocked ([WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions)
+
+[sandbox-run] exit=0 wall=283ms setup=32ms procs=2 peakJobMem=24MB events=none lpac
+
+==== [confined] spawn outside job via WMI Win32_Process.Create -> PASS
+
+W i n d o w s   P o w e r S h e l l   t e r m i n a t e d   w i t h   t h e   f o l l o w i n g   e r r o r :    
+   T h e   t y p e   i n i t i a l i z e r   f o r   ' S y s t e m . M a n a g e m e n t . A u t o m a t i o n . T r a c i n g . P S E t w L o g '   t h r e w   a n   e x c e p t i o n .  
+ [sandbox-run] exit=-65536 wall=305ms setup=33ms procs=2 peakJobMem=45MB events=none lpac
+
+==== [confined] write HKCU registry key -> PASS
+PROBE reg: denied
+
+[sandbox-run] exit=0 wall=98ms setup=30ms procs=3 peakJobMem=18MB events=none lpac
+
+==== [confined] list user Documents folder (names not printed) -> PASS
+PROBE docs: denied
+
+[sandbox-run] exit=0 wall=52ms setup=31ms procs=2 peakJobMem=18MB events=none lpac
+
+==== [confined] read clipboard (only a boolean is printed) -> PASS
+
+W i n d o w s   P o w e r S h e l l   t e r m i n a t e d   w i t h   t h e   f o l l o w i n g   e r r o r :    
+   T h e   t y p e   i n i t i a l i z e r   f o r   ' S y s t e m . M a n a g e m e n t . A u t o m a t i o n . T r a c i n g . P S E t w L o g '   t h r e w   a n   e x c e p t i o n .  
+ [sandbox-run] exit=-65536 wall=303ms setup=31ms procs=2 peakJobMem=44MB events=none lpac
+
+==== [confined] memory limit 512 MB (python allocates 4 GB) -> PASS
+PROBE mem: MemoryError after 448 MB
+
+[sandbox-run] exit=0 wall=327ms setup=32ms procs=2 peakJobMem=536MB events=JOB_MEMORY_LIMIT lpac
+
+==== [confined] memory limit 512 MB (lualatex lua table, wants ~100 GB) -> PASS
+This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+ restricted system commands enabled.
+(./att_mem.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+ (z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo)) (z:/texmf-dist/tex/latex/l3kernel/l3backend-luatex.def)
+No file att_mem.aux.
+mem.lua:2: not enough memory for buffer allocation
+stack traceback:
+	[C]: in function 'string.rep'
+	mem.lua:2: in main chunk
+	[C]: in function 'dofile'
+	[\directlua]:1: in main chunk.
+l.3 \directlua{dofile("mem.lua")}
+                                 
+[1{z:/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./att_mem.aux))
+(see the transcript file for additional information)
+ 406 words of node memory still in use:
+   3 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 1 glyph, 4 attribute, 48 glue_spec, 4 attribute_list, 1 write nodes
+   avail lists: 2:26,3:4,4:1,5:22,6:2,7:28,9:18
+<z:/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf>
+Output written on att_mem.pdf (1 page, 2643 bytes).
+Transcript written on att_mem.log.
+
+[sandbox-run] exit=1 wall=3009ms setup=32ms procs=2 peakJobMem=512MB events=JOB_MEMORY_LIMIT lpac
+
+==== [confined] wall-time limit 5 s (TeX infinite loop) -> PASS
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./att_loop.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+(z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo)) (z:/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def)
+[sandbox-run] exit=124 wall=5033ms setup=32ms procs=2 peakJobMem=105MB events=TIMEOUT lpac
+
+==== [confined] wall-time limit 3 s (python busy loop) -> PASS
+
+[sandbox-run] exit=124 wall=3032ms setup=31ms procs=2 peakJobMem=23MB events=TIMEOUT lpac
+
+==== [confined] active process limit 6 (python spawns 20 sleepers) -> PASS
+PROBE procs: started 5, failed 15 ([WinError 1816] Not enough quota is available to process this command)
+
+[sandbox-run] exit=0 wall=4572ms setup=32ms procs=7 peakJobMem=103MB events=PROCESS_LIMIT lpac
+
+==== [confined] CREATE_BREAKAWAY_FROM_JOB -> PASS
+PROBE breakaway: refused ([WinError 5] Access is denied)
+
+[sandbox-run] exit=0 wall=281ms setup=33ms procs=2 peakJobMem=23MB events=none lpac
+
+==== [variant] control: python net WITH internetClient capability -> PASS
+PROBE tcp example.com:80: CONNECTED
+PROBE tcp 93.184.215.14:80: blocked (TimeoutError: timed out)
+PROBE tcp 1.1.1.1:443: CONNECTED
+PROBE tcp 127.0.0.1:47123: blocked (TimeoutError: timed out)
+PROBE listen 127.0.0.1: LISTEN-OK (bind allowed)
+
+[sandbox-run] exit=0 wall=12285ms setup=31ms procs=2 peakJobMem=25MB events=none lpac
+
+==== [variant] LPAC: pdflatex small doc -> PASS
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./basic.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+(z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo)) (z:/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def)
+No file basic.aux.
+[1{z:/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./basic.aux) )<z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb>
+Output written on basic.pdf (1 page, 39726 bytes).
+Transcript written on basic.log.
+
+[sandbox-run] exit=0 wall=260ms setup=32ms procs=2 peakJobMem=106MB events=none lpac
+
+==== [variant] LPAC: lualatex small doc -> PASS
+This is LuaHBTeX, Version 1.24.0 (TeX Live 2026) 
+ restricted system commands enabled.
+(./basic.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+ (z:/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(z:/texmf-dist/tex/latex/base/size10.clo)) (z:/texmf-dist/tex/latex/l3kernel/l3backend-luatex.def)
+No file basic.aux.
+[1{z:/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./basic.aux))
+ 406 words of node memory still in use:
+   3 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 1 glyph, 4 attribute, 48 glue_spec, 4 attribute_list, 1 write nodes
+   avail lists: 2:36,3:14,4:1,5:28,6:2,7:122,8:10,9:44,11:2
+<z:/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><z:/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb>
+Output written on basic.pdf (1 page, 37667 bytes).
+Transcript written on basic.log.
+
+[sandbox-run] exit=0 wall=1158ms setup=32ms procs=2 peakJobMem=128MB events=none lpac
+
+==== [variant] LPAC: cmd /c echo -> PASS
+ok
+
+[sandbox-run] exit=0 wall=56ms setup=34ms procs=2 peakJobMem=17MB events=none lpac
+
